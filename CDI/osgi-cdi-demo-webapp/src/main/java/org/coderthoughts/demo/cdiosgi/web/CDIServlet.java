@@ -11,15 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.coderthoughts.demo.cdiosgi.api.OSGiPropertyProvider;
 import org.coderthoughts.demo.cdiosgi.api.WarBean;
+import org.jboss.weld.environment.osgi.api.annotation.OSGiService;
 
 public class CDIServlet extends HttpServlet {
+
     private static final long serialVersionUID = 1L;
 
-    @Inject
-    OSGiPropertyProvider osgiPropertyProvider;
+    @Inject @OSGiService OSGiPropertyProvider osgiPropertyProvider;
 
-    @Inject
-    WarBean warBean;
+    @Inject @OSGiService WarBean warBean;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
